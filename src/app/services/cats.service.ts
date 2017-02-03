@@ -14,8 +14,8 @@ export class CatsService {
 
   constructor(private http: Http) { }
 
-  getAll(): Observable<Cat[]> {
-    return this.http.get('http://localhost:3000/cats')
+  getPage(n: number): Observable<Cat[]> {
+    return this.http.get('http://localhost:3000/cats?_page=' + n)
       .map(data => data.json());
   }
 }
